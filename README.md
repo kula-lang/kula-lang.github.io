@@ -1,4 +1,4 @@
-# Kula 语言 开发文档
+# Kula - Guide  Kula 语言开发文档
 > Kula 是一个具有即时编译器的，解释型脚本语言。    
 > 他是由 HanamaruYabuki 个人开发的，自拟标准的玩具语言。    
 > 它可以基于 .Net Framework 4.6 (或以上) 运行在 Windows 系统的计算机上。
@@ -19,3 +19,17 @@
 1. 入门 Kula 语言，初步的分析 Kula 语言的语法，并提供例子。
 2. Kula 语言手册，作为 Kula 语言的工具书。
 3. Kula 底层分析，让你理解 Kula的底层机制，甚至写出你版本的 Kula。
+
+## Kula 语言相关
+
+### 伴生项目
+* [Kula - Diana : Kula 语言的 VSCode 插件](https://github.com/HanaYabuki/Kula-Diana)
+
+### 主要负责人
+[会唱歌的花枝丸 - HanaYabuki on @github.com](https://github.com/HanaYabuki)
+
+### 参与贡献代码的方式
+直接和我击剑
+
+### 开源协议
+GPL3.0
