@@ -1,4 +1,4 @@
-# Kula - Guide  Kula 语言开发文档
+# Kula 语言开发文档 : Kula - Guide
 > Kula 是一个具有即时编译器的，解释型脚本语言。    
 > 他是由 HanamaruYabuki 个人开发的，自拟标准的玩具语言。    
 > 它可以基于 .Net Framework 4.6 (或以上) 运行在 Windows 系统的计算机上。
