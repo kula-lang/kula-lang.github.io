@@ -8,7 +8,7 @@
 * 和通常数据一致，匿名函数允许和数据一样 赋给变量，或作为参数传递。
 
 ## 匿名函数的格式
-Kula 语言的函数声明比较繁琐
+Kula 语言的函数格式比较繁琐
 ```
 func ( [ <形参名称> : <形参类型> ] [,] ) : <返回值类型> { [<语句>] }
 ```
@@ -30,7 +30,7 @@ func(x:Num): None {
 
 我们使用刚才的函数作为例子：
 ```kula
-foo = func(x:Num): None {
+foo := func(x:Num): None {
     print("x is ");
     println(x);
 }
@@ -49,8 +49,8 @@ Kula 语言的函数最多可以访问函数外的变量，而函数外部无法
 当命名冲突时，优先访问更里层的变量。
 
 ```kula
-n = 0;
-counter = func(): None {
+n := 0;
+counter := func(): None {
     n = plus(n, 1);
     println(n);
 };
@@ -83,7 +83,7 @@ Kula 支持函数的递归。
 
 本例是一个递归计算斐波那契数列的程序。
 ```kula
-fib = func(x: Num): Num {
+fib := func(x: Num): Num {
     if ( (equal(x, 0), equal(x, 1)) ) {
         return 1;
     }
@@ -100,15 +100,15 @@ println(fib(10));       # 55
 
 我们举例说明。
 ```kula
-make_counter = func(): Func {
-    n = 0;
+make_counter := func(): Func {
+    n := 0;
     return func(): None {
         n = plus(n, 1);
         println(n);
     };
 };
 
-c = make_counter();
+c := make_counter();
 
 c();        # 1
 c();        # 2
@@ -124,7 +124,7 @@ c();        # 3
 
 举例说明：
 ```kula
-curryPlus = func(x: Num): Func {
+curryPlus := func(x: Num): Func {
     return func(y: Num): Num {
         return plus(x, y);
     };

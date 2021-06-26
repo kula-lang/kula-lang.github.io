@@ -10,7 +10,11 @@
   * [内置函数](zh_cn/1/builtin-func)
   * [匿名函数](zh_cn/1/func)
   * [数据结构](zh_cn/1/container)
+  * [与C#交互](zh_cn/1/with-csharp.md)
 * **第二部分：手册**
   * [语法](zh_cn/2/grammar)
   * [运算函数](zh_cn/2/func-Num)
   * [布尔函数](zh_cn/2/func-Bool)
+  * [IO函数](zh_cn/2/func-IO.md)
+  * [数据结构函数](zh_cn/2/func-Container.md)
+  * [与C#互操作](zh_cn/404.md)

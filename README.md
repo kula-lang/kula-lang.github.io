@@ -17,15 +17,15 @@
 
 ## 本教程
 本教程分以下部分：
-1. 入门 Kula 语言，初步的分析 Kula 语言的语法，并提供例子。
+1. Kula 语言入门，初步的分析 Kula 语言的语法，并提供例子。
 2. Kula 语言手册，作为 Kula 语言的工具书。
-3. Kula 底层分析，让你理解 Kula的底层机制，甚至写出你版本的 Kula。
+3. Kula 底层分析，让你理解 Kula 的底层机制，甚至让你模仿实现 Kula 语言本身。
 
 ## Kula 语言相关
 
 ### 伴生项目
-* [Kula - Diana : Kula 语言的 VSCode 插件](https://github.com/HanaYabuki/Kula-Diana)
-* [Kula - Guide : Kula 语言的 完全帮助文档](https://github.com/HanaYabuki/Kula-Guide)
+* [Kula - Diana : Kula 语言的 VSCode 插件](https://github.com/kula-lang/Kula-Diana)
+* [Kula - Guide : Kula 语言的 完全帮助文档](https://github.com/kula-lang/Kula-Guide)
 
 ### 主要负责人
 [会唱歌的花枝丸 - HanaYabuki on @github.com](https://github.com/HanaYabuki)
