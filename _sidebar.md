@@ -18,3 +18,4 @@
   * [IO函数](zh_cn/2/func-IO.md)
   * [数据结构函数](zh_cn/2/func-Container.md)
   * [与C#互操作](zh_cn/404.md)
+  * [编码建议](zh_cn/2/advice.md)
