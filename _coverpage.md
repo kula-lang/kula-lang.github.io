@@ -1,8 +1,9 @@
 <div>
     <div class="middle-block">
         <div id="logo">
-            <div id="box-a"></div>
-            <div id="box-b"></div>
+            <div id="box-a">
+                <div id="box-b"></div>
+            </div>
         </div>
         <div id="text">Kula</div>
     </div>
@@ -12,31 +13,31 @@
             overflow: hidden; zoom: 1;
         }
         #logo {
-            margin: 20px 0 20px 100px;
-            width: 160px;
-            height: 160px;
+            margin: 20px 0 20px 40px;
+            width: min(160px, 16vw);
+            height: min(160px, 16vw);
             float: left;
             box-shadow: 4px 4px 28px #ccc;
         }
         #box-a {
-            width: 160px;
-            height: 160px;
+            width: min(160px, 16vw);
+            height: min(160px, 16vw);
             background-image: linear-gradient(135deg, #0cf, #09f);
         }
         #box-b {
-            width: 76px;
-            height: 76px;
+            width: 48.5%;
+            height: 48.5%;
             background-color: #fff;
-            transform: rotate(45deg) translate(-18px, -113px);
-            box-shadow: inset 2px 2px 16px #ccc;
+            transform: rotate(45deg) translate(120%, 0);
+            box-shadow: inset 4px 0 16px #ccc;
         }
         #text {
             float: left;
-            height: 160px;
-            margin: 20px 100px 20px .1em;
+            height: min(160px, 16vw);
+            margin: 20px 40px 20px .1em;
             font-weight: lighter;
-            font-size: 140px;
-            line-height: 200px;
+            font-size: min(140px, 14vw);
+            line-height: min(200px, 20vw);
             vertical-align: bottom;
             background-image: linear-gradient(90deg, #09f, #0cf);
             -webkit-background-clip: text;

@@ -33,7 +33,7 @@ fill(arr, 3, func():None { println("hello_world"); });
 ### 随机访问
 > 随机访问 指 *按索引任意访问*
 
-数组的随机访问使用 `[pos: Num]` 的格式即可。
+数组的随机访问使用 `[ pos: Num ]` 的格式即可。
 ```kula
 println(arr[0]);        # hello
 println(arr[1]);        # 114514
@@ -70,7 +70,7 @@ put(dict, "kula", "AWESOME!!!");
 **Map 也是什么都能装的！**
 
 ### 访问
-和数组类似，使用 `<<> <key: Str> <>>` 的形式。
+和数组类似，使用 `< key: Str >` 的形式。
 
 ```kula
 println( dict<"kula"> );

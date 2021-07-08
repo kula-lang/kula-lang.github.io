@@ -18,7 +18,7 @@ Kula 引擎是一个状态机，其中包含了已经编译完成的代码块。
 engine.Compile("println(\"hello_world\");", "first-program", true);
 ```
 
-这行代码会将目标代码编译到 `KulaEngine`，并储存在 `KulaEngine` 对象的 一个 `Dictionary` 中，索引即为代码昵称 `"first-program"`。
+这行代码会将目标代码编译，并储存在 `KulaEngine` 对象的 一个 `Dictionary<string, Func>` 中，索引即为代码昵称 `"first-program"`。
 
 此后，如果我们想要运行代码，需要：
 ```csharp
@@ -36,5 +36,5 @@ engine.Run("first-program", true);
 
 当需要扩展函数时，我们需要实现这个委托，并将其写入 **`KulaEngine` 类的静态集合`ExtendFunc`中** ：
 ```csharp
-KulaEngine.ExtendFunc["hello_world"] = (args, engine) => { Console.WriteLine("hello_world"); };
+KulaEngine.ExtendFunc["hello_world"] = (args, stack, engine) => { Console.WriteLine("hello_world"); };
 ```
