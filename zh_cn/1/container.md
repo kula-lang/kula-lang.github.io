@@ -79,3 +79,23 @@ println( dict<"kula"> );
 ### 更多操作
 `count(map: Map): Num` 测量当前 Map 的体积    
 `keyIn(map: Map, key: Str): Num` 测试当前 key 是否在当前 Map 中
+
+### for 函数
+> `for` 是 Kula 语言中唯一的内置高阶函数。
+
+`for(map: Map, op: Func): None` for 函数是对于 `Map` 数据结构的遍历。
+
+其中，`op` 参数必须是一个 符合以下格式的函数：    
+`func(k: Str, v: Any): None`
+
+利用 `for` 函数，我们可以遍历 `Map`，这为我们对 Map key 未知情况下的操作提供了方便。
+
+```kula
+map := newMap();
+put(map, "a", "hello");
+put(map, "b", "-");
+put(map, "c", "world");
+for(map, func(k: Str, v: Any): None {
+    println(concat(k, concat(" : ", toStr(v))));
+});
+```
