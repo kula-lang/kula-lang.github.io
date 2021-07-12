@@ -7,5 +7,16 @@
 #big-text {
     display: inline-block;
     font-size: 20em;
+    animation-name: manimani;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes manimani{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 </style>

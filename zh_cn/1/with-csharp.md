@@ -27,14 +27,58 @@ engine.Run("first-program", true);
 ```
 即可。
 
-如果我们想清除掉 KulaEngine 里已经存储的变量，需要使用 `Clear()` 函数。
+如果我们想清除掉 KulaEngine 里已经存储的变量，需要使用 `Clear()` 函数。    
+`Clear()` 会清空对应 KulaEngine 环境的 **虚拟机栈 和 变量表**
+
+
+## KulaEngine 数据域
+> KulaEngine 是你在 C# 中唯一开放使用的接口，因此了解其尤为重要   
+> KulaEngine 中封装了对 Kula 语言编译器的调用，以及一些基础的数据结构。这些内容确保了 Kula 语言的可用性以及 和C# 的交互性。
+
+### `DataMap`
+`DataMap` 是 每个 KulaEngine 内置的数据容器，你可以自行定义扩展方法调用这个容器，他是 C# 和 Kula 交换数据的基础。
+
+在 Kula 语言中，`dataMap` 是这个容器的对应关键字，你可以通过他来和 C# 交换数据。
+
+### `ExtendFunc`
+`ExtendFunc` 是每个 KulaEngine 对应的扩展函数集。
+
+### 一些不重要的
+`Version` 版本号
 
 ## 扩展函数
 > 扩展函数 是 C# 和 Kula 交互的最直接方式，他允许 Kula 调用 C# 底层代码
 
-扩展函数基于底层的委托 `BuiltinFunc`。
+扩展函数基于底层的委托 `BFunc`。
 
-当需要扩展函数时，我们需要实现这个委托，并将其写入 **`KulaEngine` 类的静态集合`ExtendFunc`中** ：
+当需要扩展函数时，我们需要实现这个委托，并将其写入 **`KulaEngine`类的静态集合`ExtendFunc`中** ：
 ```csharp
-KulaEngine.ExtendFunc["hello_world"] = (args, stack, engine) => { Console.WriteLine("hello_world"); };
+KulaEngine.ExtendFunc["hello_world"] = (args, engine) => { Console.WriteLine("hello_world"); return null; };
 ```
+
+之后我们便可以在 Kula 语言脚本中直接调用这个函数
+```kula
+hello_world();      # hello_world
+```
+
+值得注意的是：
++ 该委托接收两个参数：`args`, `engine`。其中 `args` 对应 Kula 语言传入的所有参数，类型为 `object[]`；`engine` 对应当前引擎。
++ 该委托有一个 `object` 返回值，若不需要返回值，设为 `null` 即可。
+
+## 在 C# 中调用 Kula 的 Func
+> `Call` 方法允许你在 C# 中直接的调用传入的 Kula 函数
+
+`Call` 方法是一个在 C# 中已经封装好的，可以直接调用 Kula Func 的方法。
+
+```kula
+# 假设 foo 函数已经被传入 DataMap
+foo := func():None {
+    println("hello_world");
+};
+```
+```csharp
+var foo = kulaEngine.DataMap.Data["foo"];
+kulaEngine.Call(foo, null);
+```
+
+!> Kula 底层源码里有两种 Func 结构。其中作为参数互相传递的是 `FuncWithEnv` 而不是 `Func`，但你即使不知道这一点也可以正常的使用。

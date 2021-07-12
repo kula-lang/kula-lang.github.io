@@ -15,6 +15,7 @@
   * [语法](zh_cn/2/grammar)
   * [运算函数](zh_cn/2/func-Num)
   * [布尔函数](zh_cn/2/func-Bool)
+  * [字符串操作函数](zh_cn/2/func-string.md)
   * [IO函数](zh_cn/2/func-IO.md)
   * [数据结构函数](zh_cn/2/func-Container.md)
   * [与C#互操作](zh_cn/2/with-csharp.md)
