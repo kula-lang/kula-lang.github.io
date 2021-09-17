@@ -42,7 +42,7 @@ println(arr[1]);        # 114514
 ```
 
 !> 注意：    
-随机访问只能**读**，不能**写** ！    
+随机访问只能用于**读**，而不能用于**写** ！    
 填充数组只能使用 内置函数`fill`
 
 ### 更多操作
@@ -80,10 +80,10 @@ println( dict<"kula"> );
 
 ### 更多操作
 `count(map: Map): Num` 测量当前 Map 的体积    
-`keyIn(map: Map, key: Str): Num` 测试当前 key 是否在当前 Map 中
+`keyIn(map: Map, key: Str): Num` 考察当前 key 是否在当前 Map 中
 
 ### for 函数
-> `for` 是 Kula 语言中唯一的内置高阶函数。
+> `for` 是 Kula 语言中内置的高阶函数。
 
 `for(map: Map, op: Func): None` for 函数是对于 `Map` 数据结构的遍历。
 

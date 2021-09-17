@@ -19,6 +19,7 @@
   * [IO函数](zh_cn/2/func-IO.md)
   * [数据结构函数](zh_cn/2/func-Container.md)
   * [与C#互操作](zh_cn/2/with-csharp.md)
+  * [关于`null`](zh_cn/2/about-null.md)
   * [编码建议](zh_cn/2/advice.md)
 * 第三部分：底层分析
   * [综述](zh_cn/3/kula-engine.md)

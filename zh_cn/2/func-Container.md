@@ -13,7 +13,7 @@
 | 函数名称     | 范式                                      | 作用描述                                       |
 | ------------ | ----------------------------------------- | ---------------------------------------------- |
 | 构造         | `newMap(): Map`                           | 构造一个表                                     |
-| 填充         | `put(map: Map, key: Str, val: Any): None` | 在 `map` 的 `key` 键填充 `val` 值              |
+| 填充         | `put(map: Map, key: Str, val: Any): None` | 对 `map` 的 `key` 键填充 `val` 值              |
 | 获取元素个数 | `count(map: Map): Num`                    | 获取 表 `map` 的长度                           |
 | 查找键       | `keyIn(map: Map, key: Str): Num`          | 查找 `key` 是否在 表 `map` 中                  |
-| 遍历         | `for(map: Map, op: Func): None`           | 对 `map` 中的每一个 `key-value` 执行 `op` 操作 |
+| 遍历         | `for(map: Map, op: Func): None`           | 对 `map` 中的每一个 `key-value` 执行 `op` 操作，<br>其中 `op` 满足 `func:None(Str, Any)` |
