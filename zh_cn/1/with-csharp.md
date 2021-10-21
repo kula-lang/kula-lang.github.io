@@ -53,7 +53,7 @@ engine.Run("first-program", true);
 
 当需要扩展函数时，我们需要实现这个委托，并将其写入 **`KulaEngine`类的静态集合`ExtendFunc`中** ：
 ```csharp
-KulaEngine.ExtendFunc["hello_world"] = (args, engine) => { Console.WriteLine("hello_world"); return null; };
+kulaEngine.ExtendFunc["hello_world"] = (args, engine) => { Console.WriteLine("hello_world"); return null; };
 ```
 
 之后我们便可以在 Kula 语言脚本中直接调用这个函数

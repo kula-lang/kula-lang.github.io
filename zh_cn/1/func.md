@@ -100,13 +100,13 @@ Kula 支持函数的递归。
 本例是一个递归计算斐波那契数列的程序。
 ```kula
 fib := func(x: Num): Num {
-    if ( (equal(x, 0), equal(x, 1)) ) {
+    if ( or(equal(x, 0), equal(x, 1)) ) {
         return 1;
     }
     return plus(fib(minus(x, 1)), fib(minus(x, 2)));
 };
 
-println(fib(10));       # 55
+println(fib(9));       # 55
 ```
 
 ### 闭包
