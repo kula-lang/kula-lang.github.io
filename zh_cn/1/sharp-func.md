@@ -4,7 +4,7 @@
 ## 从 hello_world 看起
 ```kula
 # hello_world
-println("hello_world");
+Shell.println("hello_world");
 ```
 
 我们看到：
@@ -26,6 +26,9 @@ println(x: Any): None
 也就是说，我们可以填入任何形式的变量。    
 变量输出后，不会有任何后效。
 
+> 事实上，`print`系函数是特殊的。    
+> 你可以在 `println` 里填写不限制个数的参数，他们会被依次输出在控制台内，最终换行。
+
 再比如，四则运算函数的格式是：
 ```
 plus(x: Num, y:Num): Num
@@ -36,6 +39,33 @@ div(x: Num, y:Num): Num
 也就是说，我们可以填入两个 `Num` 类型作为参数，函数运行的结果相当于 **1个** `Num`，也就是 *四则运算* 的结果。
 
 > 更多的内置函数会介绍在 **第二部分的内置函数表** 里，这里不做枚举的介绍。
+
+## 命名空间 (Pre-0.4 以后的版本加入)
+kula 在 Pre-0.4 以后的版本对内置函数引入了命名空间，他们可以分隔函数名称，避免污染命名。不在全局空间的函数在调用以前需要声明其命名空间。
+
+例如，前文提到的 `println` 函数，即属于 `Shell` 命名空间。当我们调用 `println` 时，需要带上命名空间名称和 `.` 点运算符。
+
+```kula
+# 错误，因为全局命名中并不含有 println 这一变量
+println("hello_world");
+# 正确
+Shell.println("hello_world");
+```
+
+> 实际上，命名空间只是一个内置的 `Map` 数据结构。不同的是，这个 Map 不能被覆盖。
+
+这样的设计可以避免全局内的函数过多，导致编码过程中的命名冲突。也可以很好的归类函数。
+
+### 语法太长了，能不能简化一下？
+在 Pre-0.4 的更新中，加入命名空间的同时，也加入了 `unpack(namespace: Map): None` 函数，可以填入一个命名空间，将该命名空间解包。  
+解包后，这个命名空间中的变量就会被释放到全局环境中。
+```kula
+unpack(Shell);
+println("hello_world");
+```
+
+同时，也引入了 `unpackAll(): None` 函数，将所有的命名空间都释放到全局。(`new` 系函数会被命名为 `newXxx` 如 `newMap` `newArray`)  
+当然并不建议这样做，虽然它本身不会形成冲突。
 
 ## 调用
 函数的调用遵循以下格式：
@@ -54,6 +84,7 @@ a = times(a, a);
 > 注意：  
 > + 函数的参数个数是有限制的。
 > + 函数的参数有类型约束，填入不规范的类型可能会造成异常。
+> + 关闭类型检查可以提高程序运行的效率，但是当出现运行异常时，错误会很难被定位。
 
 ## 作用
 函数一般有两个作用：
@@ -85,7 +116,7 @@ println(114514);
 
 看下面的例子：
 ```kula
-println(times(100, 5));
+Shell.println(times(100, 5));
 ```
 这段程序会输出一个 `500`。    
 因为 `println` 接收到的其实是 `times` 函数的运行结果，也就是一个 `Num`。
@@ -94,7 +125,12 @@ println(times(100, 5));
 ```kula
 a = 114;
 b = 514;
-println(concat("sum = ", toStr(plus(a, b))));
+Shell.println(
+    Str.concat(
+        "sum = ", 
+        Str.toStr(plus(a, b))
+    )
+);
 ```
 
 这段程序会输出 `sum = 628`。    
@@ -109,13 +145,13 @@ println(concat("sum = ", toStr(plus(a, b))));
 数据结构是 Kula 中仅有的 可变数据类型。对数据结构的操作要利用对应的内置函数。
 
 ```kula
-langMap = newMap();
-put(langMap, "java", "Bad.");
-put(langMap, "c#", "Good!");
-put(langMap, "kula", "AWESOME!!!");
+langMap = Map.new();
+Map.put(langMap, "java", "Bad.");
+Map.put(langMap, "c#", "Good!");
+Map.put(langMap, "kula", "AWESOME!!!");
 
-if (keyIn(langMap, "kula")) {
-    println(concat("kula is ", langMap<"kula">));
+if (Map.keyIn(langMap, "kula")) {
+    Shell.println(Str.concat("kula is ", langMap["kula"]));
 }
 ```
 

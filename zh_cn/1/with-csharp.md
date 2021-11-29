@@ -2,6 +2,17 @@
 > Kula 语言 底层由 C# 写成，自然和 C# 语言拥有极好的契合度。    
 > 本篇将详细讲解如何在 C# 中使用 Kula
 
+!> 本篇待重构  
+本篇待重构  
+本篇待重构  
+本篇待重构  
+本篇待重构  
+本篇待重构  
+本篇待重构  
+本篇待重构  
+本篇待重构  
+本篇待重构  
+
 ## 在 C# 中 加载 Kula
 > 在 C# 中使用 Kula 需要基于 `kula.dll` 中提供的开放类 `KulaEngine`
 
@@ -15,7 +26,7 @@ Kula 引擎是一个状态机，其中包含了已经编译完成的代码块。
 当我们想要运行代码时，我们需要首先编译目标代码：
 ```csharp
 // 我们需要的参数有：目标代码，代码昵称，是否为Debug编译
-engine.Compile("println(\"hello_world\");", "first-program", true);
+engine.CompileCode("println(\"hello_world\");", "first-program", true);
 ```
 
 这行代码会将目标代码编译，并储存在 `KulaEngine` 对象的 一个 `Dictionary<string, Func>` 中，索引即为代码昵称 `"first-program"`。
@@ -27,8 +38,8 @@ engine.Run("first-program", true);
 ```
 即可。
 
-如果我们想清除掉 KulaEngine 里已经存储的变量，需要使用 `Clear()` 函数。    
-`Clear()` 会清空对应 KulaEngine 环境的 **虚拟机栈 和 变量表**
+> 如果我们想清除掉 KulaEngine 里已经存储的变量，需要使用 `Clear()` 函数。     
+> `Clear()` 会清空对应 KulaEngine 环境的 **虚拟机栈 和 变量表**
 
 
 ## KulaEngine 数据域

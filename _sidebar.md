@@ -7,9 +7,11 @@
   * [快速入门](zh_cn/1/guide)
   * [数据和类型](zh_cn/1/data)
   * [程序结构](zh_cn/1/structure)
-  * [内置函数](zh_cn/1/builtin-func)
+  * [内置函数](zh_cn/1/sharp-func)
   * [匿名函数](zh_cn/1/func)
   * [数据结构](zh_cn/1/container)
+  * [鸭子类型](zh_cn/1/duck-type.md)
+  * [高阶类型](zh_cn/1/func-type.md)
   * [与C#交互](zh_cn/1/with-csharp.md)
 * **第二部分：手册**
   * [语法](zh_cn/2/grammar)

@@ -10,10 +10,10 @@ Kula 语言中的数据结构，是对计算机科学中常见的数据结构的
 对数组的操作需要依赖内置函数。    
 
 ### 初始化
-初始化数组需要用到 内置函数 `newArray(size: Num): Array`    
+初始化数组需要用到 内置函数 `new(size: Num): Array`    
 这个函数的返回值即为新构造出来的数组。我们用一个变量接受他就可以了。
 ```kula
-arr = newArray(16);     # 我们申请了一个长度为16的数组
+arr = Array.new(16);     # 我们申请了一个长度为16的数组
 ```
 
 数组按长度初始化后，对应位置会被填入常量 `null`
@@ -21,10 +21,10 @@ arr = newArray(16);     # 我们申请了一个长度为16的数组
 ### 填充
 对数组元素填充需要用到 内置函数 `fill(arr: Array, pos: Num, val: Any): None`    
 ```kula
-fill(arr, 0, "hello");
-fill(arr, 1, 114514);
-fill(arr, 2, newArray(4));
-fill(arr, 3, func():None { println("hello_world"); });
+Array.fill(arr, 0, "hello");
+Array.fill(arr, 1, 114514);
+Array.fill(arr, 2, Array.new(4));
+Array.fill(arr, 3, func():None { Shell.println("hello_world"); });
 ```
 以上操作都是合法的，因为 Kula 的数组 **什么都能装！**
 
@@ -37,8 +37,8 @@ fill(arr, 3, func():None { println("hello_world"); });
 
 数组的随机访问使用 `[ pos: Num ]` 的格式即可。
 ```kula
-println(arr[0]);        # hello
-println(arr[1]);        # 114514
+Shell.println(arr[0]);        # hello
+Shell.println(arr[1]);        # 114514
 ```
 
 !> 注意：    
@@ -56,26 +56,26 @@ println(arr[1]);        # 114514
 
 ### 初始化
 和 `Array` 类似，但是 `Map` 不需要指定长度。    
-对应函数为 `newMap(): Map`
+对应函数为 `new(): Map`
 ```kula
-dict = newMap();
+dict = Map.new();
 ```
 
 ### 填充
 和数组类似，使用内置函数 `put(key: Str, val: Any): None`
 ```kula
-put(dict, "java", "Bad.");
-put(dict, "c#", "Good!");
-put(dict, "kula", "AWESOME!!!");
+Map.put(dict, "java", "Bad.");
+Map.put(dict, "c#", "Good!");
+Map.put(dict, "kula", "AWESOME!!!");
 ```
 
 **Map 也是什么都能装的！**
 
 ### 访问
-和数组类似，使用 `< key: Str >` 的形式。
+和数组类似，使用 `[ key: Str ]` 的形式。
 
 ```kula
-println( dict<"kula"> );
+Shell.println(dict["kula"]);
 ```
 
 ### 更多操作
@@ -94,10 +94,10 @@ println( dict<"kula"> );
 
 ```kula
 map := newMap();
-put(map, "a", "hello");
-put(map, "b", "-");
-put(map, "c", "world");
-for(map, func(k: Str, v: Any): None {
-    println(concat(k, concat(" : ", toStr(v))));
+Map.put(map, "a", "hello");
+Map.put(map, "b", "-");
+Map.put(map, "c", "world");
+Map.for(map, func(k: Str, v: Any): None {
+    Shell.println(Str.concat(k, Str.concat(" : ", Str.toStr(v))));
 });
 ```

@@ -12,16 +12,18 @@ Kula 语言的函数格式比较繁琐
 ```
 func ( [ <形参名称> : <形参类型> ] [,] ) : <返回值类型> { [<语句>] }
 ```
-1. Kula 的匿名函数不能夹杂函数名，只能将函数赋给变量
+1. Kula 的匿名函数不能夹杂函数名，只能将函数赋值给变量。
 2. Kula 对函数的形参是有类型约束的。
 3. Kula 必须指定返回值名称，如无返回值，可用 `None`。
 
 举个例子：
 ```kula
 func(x:Num): None {
-    print("x is ");
-    println(x);
+    Shell.print("x is ");
+    Shell.println(x);
 }
+
+
 ```
 这个匿名函数会将输入的变量输出成 `x is 某某` 的形式。
 
@@ -31,15 +33,15 @@ func(x:Num): None {
 我们使用刚才的函数作为例子：
 ```kula
 foo := func(x:Num): None {
-    print("x is ");
-    println(x);
+    Shell.print("x is ");
+    Shell.println(x);
 }
 ```
 
 ## 函数的调用
 匿名函数调用和 内置函数调用的格式是一样的。
 ```
-foo(100);       # x is 100
+foo(100);       # 输出 x is 100
 ```
 
 ## 变量作用域
@@ -52,7 +54,7 @@ Kula 语言的函数最多可以访问函数外的变量，而函数外部无法
 n := 0;
 counter := func(): None {
     n = plus(n, 1);
-    println(n);
+    Shell.println(n);
 };
 
 counter();      # 1
@@ -64,17 +66,19 @@ counter();      # 5
 这个例子生动的讲解了作用域的效果。    
 即 函数内部可以访问到 `n`，而不会每次初始化一个新的 `n` 或产生访问错误。
 
+这里建议回看 [寻址赋值/声明赋值](/zh_cn/1/structure?id=声明赋值) 部分
+
 ## Pipe 管道语法
 Kula 语言在 *Pre-0.3.1* 以后的版本中添加了一个有趣的语法糖 `|` 管道操作符。
 
 他允许 Kula 将嵌套函数转化为链式结构，来避免过深的嵌套格式。
 
 ```kula
-"hello_world"|println();
-# 等价于 println("hello_world");
+"hello_world"|Shell.println();
+# 等价于 Shell.println("hello_world");
 
-map|put("number", 100);
-# 等价于 put(map, "number", 100);
+map|Map.put("number", 100);
+# 等价于 Map.put(map, "number", 100);
 
 1|2|plus();
 # 等价于 plus(1, 2);
@@ -120,7 +124,7 @@ make_counter := func(): Func {
     n := 0;
     return func(): None {
         n = plus(n, 1);
-        println(n);
+        Shell.println(n);
     };
 };
 
@@ -133,6 +137,8 @@ c();        # 3
 
 当我们调用 `make_counter` 时，我们实际上创造了一个包裹了 `n` 的函数环境，并且将操作 `n` 的唯一接口作为函数返回了出来。  
 之后，我们便可以通过返回出来的新函数操作 `n`。
+
+> 事实上，虽然闭包代码较为复杂，但理解闭包是精通所有函数式语言的必经之路。同时，Kula标准库里也会有大量的对象化数据容器基于闭包实现。
 
 ### 柯里化
 柯里化是一种函数级的封装思想。    
@@ -150,3 +156,5 @@ println( curryPlus(100)(2) );       # 102
 ```
 
 实现的思想就是 **将剩余参数传入当前函数的返回函数内**。不难理解，但是未必能善用。
+
+> 工程代码中，未必需要特地如此做，但需要理解柯里化语法存在的意义和理由。
