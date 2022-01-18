@@ -35,14 +35,15 @@ Array.fill(arr, 3, func():None { Shell.println("hello_world"); });
 ### 随机访问
 > 随机访问 指 *按索引任意访问*
 
-数组的随机访问使用 `[ pos: Num ]` 的格式即可。
+数组的随机访问使用 `[ pos: Num ]` 的格式，在中括号中填写索引即可。
 ```kula
-Shell.println(arr[0]);        # hello
-Shell.println(arr[1]);        # 114514
+arr[0];        # hello
+arr[1];        # 114514
+
 ```
 
 !> 注意：    
-随机访问只能用于**读**，而不能用于**写** ！    
+索引的随机访问只能用于**读**，而不能用于**写** ！    
 填充数组只能使用 内置函数`fill`
 
 ### 更多操作

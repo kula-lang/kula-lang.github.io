@@ -25,7 +25,7 @@ $ kula --debug=0 ./hello.kula     # 使用Release脚本模式，打开该路径�
 Shell.println("hello_world");
 ```
 
-我们在 Shell 中，输入
+我们在当前路径打开一个Shell，向其中输入 （`$`符号是Shell自带的！不用输入！）
 ```
 $ kula ./hello.kula
 ```

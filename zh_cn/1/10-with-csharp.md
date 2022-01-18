@@ -46,10 +46,10 @@ engine.Run("first-program", true);
 > KulaEngine 是你在 C# 中唯一开放使用的接口，因此了解其尤为重要   
 > KulaEngine 中封装了对 Kula 语言编译器的调用，以及一些基础的数据结构。这些内容确保了 Kula 语言的可用性以及 和C# 的交互性。
 
-### `DataMap`
-`DataMap` 是 每个 KulaEngine 内置的数据容器，你可以自行定义扩展方法调用这个容器，他是 C# 和 Kula 交换数据的基础。
+### `Engine`
+`Engine` 字段是 每个 KulaEngine 内置的数据容器，你可以自行定义扩展方法调用这个容器，他是 C# 和 Kula 交换数据的基础。
 
-在 Kula 语言中，`dataMap` 是这个容器的对应关键字，你可以通过他来和 C# 交换数据。
+在 Kula 语言中，`Engine` 是这个容器的对应关键字，你可以通过他来和 C# 交换数据。
 
 ### `ExtendFunc`
 `ExtendFunc` 是每个 KulaEngine 对应的扩展函数集。
@@ -58,7 +58,7 @@ engine.Run("first-program", true);
 `Version` 版本号
 
 ## 扩展函数
-> 扩展函数 是 C# 和 Kula 交互的最直接方式，他允许 Kula 调用 C# 底层代码
+> 扩展函数 是 C# 和 Kula 交互的最直接方式，他允许 Kula 调用 C# 写好的方法。
 
 扩展函数基于底层的委托 `SharpFunc`。
 
@@ -94,4 +94,5 @@ var foo = kulaEngine.DataMap.Data["foo"];
 kulaEngine.Call(foo, null);
 ```
 
-!> Kula 底层源码里为了实现复杂的闭包机制，借助了多个类结构来实现匿名函数 Func。其中 `Lambda` 在编译期先被注入代码，紧接着被编译为可执行字节码流。可以作为参数互相传递的是 `Func` 而不是 `Lambda`，但你即使不知道这一点也可以正常的使用。
+!> Kula 底层源码里为了实现复杂的闭包机制，借助了多个类结构来实现匿名函数 `Func`。其中 `Lambda` 在编译期先被注入代码，紧接着被编译为可执行字节码流，之后由 `Func` 结构将其接收。`Func` 中包含了他被声明的外部环境信息。  
+可以作为参数互相传递的是 `Func` 而不是 `Lambda`，但你即使不知道这一点也可以正常的使用。

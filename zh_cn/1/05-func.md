@@ -1,6 +1,6 @@
 # 匿名函数
 > 匿名函数，在 Kula 里被称为 `Func` 类型。    
-> 在函数式编程中，被统称为 `lambda表达式`
+> 在函数式编程中，一般被统称为 `lambda表达式`
 
 ## 什么是 匿名函数
 匿名函数 也是 数据的一种。
@@ -22,8 +22,6 @@ func(x:Num): None {
     Shell.print("x is ");
     Shell.println(x);
 }
-
-
 ```
 这个匿名函数会将输入的变量输出成 `x is 某某` 的形式。
 
@@ -32,7 +30,7 @@ func(x:Num): None {
 
 我们使用刚才的函数作为例子：
 ```kula
-foo := func(x:Num): None {
+foo := func(x: Num): None {
     Shell.print("x is ");
     Shell.println(x);
 }
@@ -40,8 +38,9 @@ foo := func(x:Num): None {
 
 ## 函数的调用
 匿名函数调用和 内置函数调用的格式是一样的。
-```
-foo(100);       # 输出 x is 100
+```kula
+# 输出 x is 100
+foo(100);       
 ```
 
 ## 变量作用域
@@ -66,7 +65,7 @@ counter();      # 5
 这个例子生动的讲解了作用域的效果。    
 即 函数内部可以访问到 `n`，而不会每次初始化一个新的 `n` 或产生访问错误。
 
-这里建议回看 [寻址赋值/声明赋值](/zh_cn/1/structure?id=声明赋值) 部分
+这里建议回看 [寻址赋值/声明赋值](/zh_cn/1/03-structure?id=声明赋值) 部分
 
 ## Pipe 管道语法
 Kula 语言在 *Pre-0.3.1* 以后的版本中添加了一个有趣的语法糖 `|` 管道操作符。
