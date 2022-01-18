@@ -11,7 +11,7 @@ Kula 语言诞生于 2021 年 5 月 下旬，并且正在高速的发展之中�
   * 环境易部署，可独立存在，也可嵌入其他 C# 项目
   * 和 C# 双向交互，可由 C# 实现高度的扩展性
   * 模块化编码，支持动态引用其他原生库
-  * [优雅美观的官方文档](https://kula-lang.github.io/Kula-Guide/) 
+  * [优雅美观的官方文档](https://kula-lang.github.io) 
 
 * 语言本身
   * 基础语法形似主流语言
@@ -32,7 +32,7 @@ Kula 语言诞生于 2021 年 5 月 下旬，并且正在高速的发展之中�
 
 ### 伴生项目
 * [Kula - Diana : Kula 语言的 VSCode 插件](https://github.com/kula-lang/Kula-Diana)
-* [Kula - Guide : Kula 语言的 完全帮助文档](https://github.com/kula-lang/Kula-Guide)
+* [Kula - Guide : Kula 语言的 完全帮助文档](https://github.com/kula-lang/kula.github.io)
 
 ### 主要负责人
 [会唱歌的花枝丸 - HanaYabuki on @github.com](https://github.com/HanaYabuki)
