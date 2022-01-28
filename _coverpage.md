@@ -53,7 +53,7 @@
 + 无缝对接 C#
 + 支持函数式、面向对象等高级特性
 
-[**Github仓库**](https://github.com/kula-lang/Kula)
+[**Github仓库**](https://github.com/kula-lang/kula)
 [*VSCode插件*](https://github.com/kula-lang/Kula-Diana)
 
 ![color](#fff)
