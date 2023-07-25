@@ -2,7 +2,7 @@
 > Kula 语言的环境配置非常简单
 
 ## 直接在 Windows 平台使用
-> Kula 是基于 .net framework 平台开发的，也就意味着 Kula 和 Windows 平台的相性是最好的。
+> Kula 是基于 .net6 开发的，也就意味着 Kula 和 Windows 平台的相性是最好的。
 
 Kula 允许你有两种方式部署：
 
