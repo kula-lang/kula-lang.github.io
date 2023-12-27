@@ -13,13 +13,13 @@ false   # 一个Bool字面量
 字面量只可以是一个基本类型的常量。
 
 ## 赋值表达式
-赋值主要分为两种：**初始化赋值** 和 **更改赋值**
+赋值主要分为两种：**声明赋值** 和 **更改赋值**
 ```EBNF
 assignment  =   IDENTIFIER ("="|":=") expression ;
 ```
 !> 这里为了临时讲解，表示并不完整
 
-### 初始化赋值
+### 声明赋值
 ```kula
 a := 1
 ```
@@ -71,6 +71,14 @@ logicAnd    =   equality ("and" equality)* ;
 unary       =   ("!" | "-") unary | call ;
 ```
 用于计算两个 `Bool` 类型的值，其中 `and` 比 `or` 更优先结合。
+
+### 短路
+当 `and` 的左值为 `false`，以及 `or` 的左值为 `true` 时，不计算右值。
+```kula
+if (ptr != null and ptr.key == value) {
+    print "这是标准的判空写法，所以空了当然不会报错";
+}
+```
 
 ## 调用表达式
 ```EBNF

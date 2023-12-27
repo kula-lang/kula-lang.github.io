@@ -1,11 +1,5 @@
-# 内置函数
-> 内置函数 是 Kula 语言在语言层面的一些基本操作。
-
-## 从 hello_world 看起
-```kula
-# hello_world
-Shell.println("hello_world");
-```
+# 函数
+> 函数 是 Kula 语言在语言层面的一些基本操作。
 
 我们看到：
 1. 除第一行的注释
